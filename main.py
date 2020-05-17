@@ -57,6 +57,18 @@ class button():
             
         return False
 
+#Expanding circles class
+class expandingCircle():
+    def __init__(self, color, x,y,radius):
+        self.color = color
+        self.x = x
+        self.y = y
+        self.radius = radius
+
+    def draw(self, win):
+        pygame.draw.circle(win, self.color, (self.x, self.y), self.radius)
+        self.radius += 5
+
 # Goes through buttons, checks which ones are selected and plays the corresponding sounds
 def playOnce():
     counter = 0
@@ -72,11 +84,13 @@ def playOnce():
         if selected[counter] == True:
             print("Play Sound Note " + str(counter))
             #pygame.mixer.Channel(counter%12).play(buttonsToNotes[counter%12])
+            highlights.append(expandingCircle((255,0,255),button.x+15, button.y+15, 40))
             buttonsToNotes[counter%12].play()
 
         if counter % 12 == 0 and counter != 0:
             pygame.time.delay(700)
             x += vel
+            highlights.clear()
         counter += 1
 
     x = 95
@@ -89,6 +103,9 @@ def redrawWindow():
         button.draw(win, (0, 0, 0))
     playButton.draw(win, (0, 0 ,0))
     #pygame.draw.rect(win, (255, 0, 255), (x, 0, 20, 1000))
+
+    for c in highlights:
+        c.draw(win)
 
 run = True
 
@@ -103,6 +120,8 @@ for row in range (12):
 
 playButton = button((0, 255, 0), 735, 50, 60, 30, "Play!")
 pygame.mixer.set_num_channels(12)
+
+highlights = []
 
 # Main Function
 while run:
