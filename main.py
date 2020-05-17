@@ -74,7 +74,7 @@ def playOnce():
             #pygame.mixer.Channel(counter%12).play(buttonsToNotes[counter%12])
             buttonsToNotes[counter%12].play()
 
-        if counter % 12 == 0:
+        if counter % 12 == 0 and counter != 0:
             pygame.time.delay(700)
             x += vel
         counter += 1
