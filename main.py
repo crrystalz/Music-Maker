@@ -103,6 +103,7 @@ def redrawWindow():
     for button in buttons:
         button.draw(win, (0, 0, 0))
     playButton.draw(win, (0, 0 ,0))
+    resetButton.draw(win, (0, 0 ,0))
     #pygame.draw.rect(win, (255, 0, 255), (x, 0, 20, 1000))
 
     for c in highlights:
@@ -119,7 +120,8 @@ for row in range (12):
         buttons.append(button((0, 255, 0), 130*row+100, 130*collumn+120, 30, 30, "X"))
         selected.append(False)
 
-playButton = button((0, 255, 0), 735, 50, 60, 30, "Play!")
+playButton = button((0, 255, 0), 715, 50, 60, 30, "Play!")
+resetButton = button((0, 255, 0), 755, 50, 60, 30, "Reser!")
 pygame.mixer.set_num_channels(12)
 
 highlights = []
@@ -141,6 +143,10 @@ while run:
             
             if playButton.isOver(pos):
                 print("Clicked Play Button")
+                threading.Thread(target=playOnce).start()
+
+            if resetButton.isOver(pos):
+                print("Clicked Reser Button")
                 threading.Thread(target=playOnce).start()
             
             for button in buttons:
