@@ -6,6 +6,7 @@ import random
 
 pygame.init()
 
+#Initialize Screen
 win = pygame.display.set_mode((1500, 1000))
 pygame.display.set_caption("Music Maker")
 
