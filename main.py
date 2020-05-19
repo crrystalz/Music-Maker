@@ -45,10 +45,10 @@ class button():
             
         pygame.draw.rect(win, self.color, (self.x,self.y,self.width,self.height),0)
         
-        #if self.text != '':
-            #font = pygame.font.SysFont('comicsans', 20)
-            #text = font.render(self.text, 1, (0,0,0))
-            #win.blit(text, (self.x + (self.width/2 - text.get_width()/2), self.y + (self.height/2 - text.get_height()/2)))
+        if self.text != '':
+            font = pygame.font.SysFont('comicsans', 20)
+            text = font.render(self.text, 1, (0,0,0))
+            win.blit(text, (self.x + (self.width/2 - text.get_width()/2), self.y + (self.height/2 - text.get_height()/2)))
 
     def isOver(self, pos):
         #Pos is the mouse position or a tuple of (x,y) coordinates
@@ -96,6 +96,10 @@ def playOnce():
 
     x = 95
 
+def clearGrid():
+    for button in selected:
+        selected[button] = False
+
 # Updates screen
 def redrawWindow():
     global x
@@ -103,7 +107,7 @@ def redrawWindow():
     for button in buttons:
         button.draw(win, (0, 0, 0))
     playButton.draw(win, (0, 0 ,0))
-    resetButton.draw(win, (0, 0 ,0))
+    clearButton.draw(win, (0, 0 ,0))
     #pygame.draw.rect(win, (255, 0, 255), (x, 0, 20, 1000))
 
     for c in highlights:
@@ -113,15 +117,17 @@ run = True
 
 x = 95
 
+# Creation of grid of buttons
 buttons = []
 selected = []
 for row in range (12):
     for collumn in range (12):
-        buttons.append(button((0, 255, 0), 130*row+100, 130*collumn+120, 30, 30, "X"))
+        buttons.append(button((0, 255, 0), 130*row+100, 130*collumn+120, 30, 30))
         selected.append(False)
 
-playButton = button((0, 255, 0), 715, 50, 60, 30, "Play!")
-resetButton = button((0, 255, 0), 755, 50, 60, 30, "Reser!")
+# Creation of play and clear buttons
+playButton = button((0, 255, 0), 695, 50, 60, 30, "Play!")
+clearButton = button((0, 255, 0), 775, 50, 60, 30, "Clear!")
 pygame.mixer.set_num_channels(12)
 
 highlights = []
@@ -145,9 +151,9 @@ while run:
                 print("Clicked Play Button")
                 threading.Thread(target=playOnce).start()
 
-            if resetButton.isOver(pos):
-                print("Clicked Reser Button")
-                threading.Thread(target=playOnce).start()
+            if clearButton.isOver(pos):
+                print("Clicked Clear Button")
+                clearGrid()
             
             for button in buttons:
                 counter += 1
@@ -173,6 +179,12 @@ while run:
                 
                 else:
                     playButton.color = (0, 255, 0)
+
+                if clearButton.isOver(pos):
+                    clearButton.color = (255, 0 , 0)
+                
+                else:
+                    clearButton.color = (0, 255, 0)
 
                 if button.isOver(pos):
                     if selected[counter] == False:
