@@ -85,6 +85,8 @@ def playOnce():
         if selected[counter] == True:
             print("Play Sound Note " + str(counter))
             #pygame.mixer.Channel(counter%12).play(buttonsToNotes[counter%12])
+            
+            #Chooses random RGB values to create a random color for the circle effect
             red = random.randint(1,255)
             green = random.randint(1,255)
             blue = random.randint(1,255)
@@ -100,6 +102,7 @@ def playOnce():
 
     x = 95
 
+# Function to clear grid of buttons when called
 def clearGrid():
     counter = 0
     
