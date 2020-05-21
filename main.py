@@ -6,9 +6,12 @@ import random
 
 pygame.init()
 
-#Initialize Screen
+# Initialize Screen
 win = pygame.display.set_mode((1500, 1000))
 pygame.display.set_caption("Music Maker")
+
+# Putting in a background image
+background = pygame.image.load("backgroundImage.jpg").convert()
 
 # Importing Sounds
 noteA = pygame.mixer.Sound('a.wav')
@@ -136,8 +139,8 @@ for row in range (12):
         selected.append(False)
 
 # Creation of play and clear buttons
-playButton = button((0, 255, 0), 695, 50, 60, 30, "Play!")
-clearButton = button((0, 255, 0), 775, 50, 60, 30, "Clear!")
+playButton = button((0, 255, 0), 675, 50, 90, 40, "Play!")
+clearButton = button((0, 255, 0), 795, 50, 90, 40, "Clear!")
 pygame.mixer.set_num_channels(12)
 
 highlights = []
@@ -205,7 +208,7 @@ while run:
                         button.color = (0, 0, 255)
 
 
-    win.fill((0,0,0))
+    win.blit(background, (0,0))
     redrawWindow()
     pygame.display.update()
 
