@@ -85,7 +85,11 @@ def playOnce():
         if selected[counter] == True:
             print("Play Sound Note " + str(counter))
             #pygame.mixer.Channel(counter%12).play(buttonsToNotes[counter%12])
-            highlights.append(expandingCircle((255,0,255),button.x+15, button.y+15, 40))
+            red = random.randint(1,255)
+            green = random.randint(1,255)
+            blue = random.randint(1,255)
+
+            highlights.append(expandingCircle((red, green, blue),button.x+15, button.y+15, 40))
             buttonsToNotes[counter%12].play()
 
         if counter % 12 == 0 and counter != 0:
@@ -102,7 +106,7 @@ def clearGrid():
     for button in selected:
         selected[counter] = False
         counter += 1
-        
+
 # Updates screen
 def redrawWindow():
     global x
