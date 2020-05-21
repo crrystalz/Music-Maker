@@ -3,11 +3,14 @@ import threading
 import time
 import math
 import random
+import sys
 
 pygame.init()
 
+from pygame.locals import *
+
 # Initialize Screen
-win = pygame.display.set_mode((1500, 1000))
+win = pygame.display.set_mode((1500, 1000),0,32)
 pygame.display.set_caption("Music Maker")
 
 # Putting in a background image
@@ -143,6 +146,7 @@ playButton = button((0, 255, 0), 675, 50, 90, 40, "Play!")
 clearButton = button((0, 255, 0), 795, 50, 90, 40, "Clear!")
 pygame.mixer.set_num_channels(12)
 
+particles = []
 highlights = []
 
 # Main Function
@@ -210,6 +214,19 @@ while run:
 
     win.blit(background, (0,0))
     redrawWindow()
+
+    mx, my = pygame.mouse.get_pos()
+    particles.append([[mx, my], [random.randint(0, 20) / 10 - 1, -2], random.randint(4, 6)])
+ 
+    for particle in particles:
+        particle[0][0] += particle[1][0]
+        particle[0][1] += particle[1][1]
+        particle[2] -= 0.1
+        particle[1][1] += 0.1
+        pygame.draw.circle(win, (255, 255, 255), [int(particle[0][0]), int(particle[0][1])], int(particle[2]))
+        if particle[2] <= 0:
+            particles.remove(particle)
+
     pygame.display.update()
 
 finish = time.perf_counter()
