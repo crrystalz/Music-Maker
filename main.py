@@ -97,9 +97,12 @@ def playOnce():
     x = 95
 
 def clearGrid():
+    counter = 0
+    
     for button in selected:
-        selected[button] = False
-
+        selected[counter] = False
+        counter += 1
+        
 # Updates screen
 def redrawWindow():
     global x
