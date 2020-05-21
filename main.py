@@ -215,6 +215,7 @@ while run:
     win.blit(background, (0,0))
     redrawWindow()
 
+    # Particle effect
     mx, my = pygame.mouse.get_pos()
     particles.append([[mx, my], [random.randint(0, 20) / 10 - 1, -2], random.randint(4, 6)])
  
