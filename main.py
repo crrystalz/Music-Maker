@@ -135,7 +135,7 @@ buttons = []
 selected = []
 for row in range (12):
     for collumn in range (12):
-        buttons.append(button((0, 255, 0), 130*row+100, 130*collumn+120, 30, 30))
+        buttons.append(button((0, 255, 0), 130*row+100, 130*collumn+120, 30, 30, "MM"))
         selected.append(False)
 
 # Creation of play and clear buttons
