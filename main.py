@@ -157,7 +157,7 @@ for row in range (12):
         buttons.append(button((0, 255, 0), 130*row+100, 130*collumn+120, 30, 30, "MM"))
         selected.append(False)
 
-# Creation of play and clear buttons
+# Creation of control buttons
 playButton = button((0, 255, 0), 645, 50, 90, 40, "Play!")
 clearButton = button((0, 255, 0), 765, 50, 90, 40, "Clear!")
 guitarButton = button((0, 255, 0), 885, 50, 90, 40, "Guitar!")
@@ -188,6 +188,10 @@ while run:
             if clearButton.isOver(pos):
                 print("Clicked Clear Button")
                 clearGrid()
+
+            if guitarButton.isOver(pos):
+                print("Clicked Guitar Button")
+                #guitar()
             
             for button in buttons:
                 counter += 1
@@ -219,6 +223,12 @@ while run:
                 
                 else:
                     clearButton.color = (0, 255, 0)
+
+                if clearButton.isOver(pos):
+                    guitarButton.color = (255, 0 , 0)
+                
+                else:
+                    guitarButton.color = (0, 255, 0)
 
                 if button.isOver(pos):
                     if selected[counter] == False:
