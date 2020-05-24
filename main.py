@@ -91,12 +91,15 @@ class expandingCircle():
         pygame.draw.circle(win, self.color, (self.x, self.y), self.radius)
         self.radius += 5
 
+guitarVar = False
+
 # Goes through buttons, checks which ones are selected and plays the corresponding sounds
 def playOnce():
     counter = 0
     vel = 130
 
     global x
+    global guitarVar
 
     for button in buttons:
         #print("Counter Value " + str(counter) + " Selected Counter: " + str(selected[counter]))
@@ -113,7 +116,12 @@ def playOnce():
             blue = random.randint(1,255)
 
             highlights.append(expandingCircle((red, green, blue),button.x+15, button.y+15, 40))
-            buttonsToNotes[counter%12].play()
+            if guitarVar == False:
+                print(guitarVar)
+                buttonsToNotes[counter%12].play()
+
+            else:
+                buttonsToNotesGuitar[counter%12].play()
 
         if counter % 12 == 0 and counter != 0:
             pygame.time.delay(700)
@@ -122,6 +130,11 @@ def playOnce():
         counter += 1
 
     x = 95
+
+#Function to switch sounds to guitar
+def guitar():
+    global guitarVar
+    guitarVar = True
 
 # Function to clear grid of buttons when called
 def clearGrid():
@@ -191,7 +204,7 @@ while run:
 
             if guitarButton.isOver(pos):
                 print("Clicked Guitar Button")
-                #guitar()
+                guitar()
             
             for button in buttons:
                 counter += 1
@@ -224,7 +237,7 @@ while run:
                 else:
                     clearButton.color = (0, 255, 0)
 
-                if clearButton.isOver(pos):
+                if guitarButton.isOver(pos):
                     guitarButton.color = (255, 0 , 0)
                 
                 else:
