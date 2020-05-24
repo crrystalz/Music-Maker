@@ -10,6 +10,8 @@ pygame.init()
 
 from pygame.locals import *
 
+start = time.perf_counter()
+
 # Initialize Screen
 win = pygame.display.set_mode((1500, 1000),0,32)
 pygame.display.set_caption("Music Maker")
@@ -31,9 +33,21 @@ noteFSharp = pygame.mixer.Sound('f#.wav')
 noteG = pygame.mixer.Sound('g.wav')
 noteGSharp = pygame.mixer.Sound('g#.wav')
 
-start = time.perf_counter()
+guitar1 = pygame.mixer.Sound('guitar1.wav')
+guitar2 = pygame.mixer.Sound('guitar2.wav')
+guitar3 = pygame.mixer.Sound('guitar3.wav')
+guitar4 = pygame.mixer.Sound('guitar4.wav')
+guitar5 = pygame.mixer.Sound('guitar5.wav')
+guitar6 = pygame.mixer.Sound('guitar6.wav')
+guitar7 = pygame.mixer.Sound('guitar7.wav')
+guitar8 = pygame.mixer.Sound('guitar8.wav')
+guitar9 = pygame.mixer.Sound('guitar9.wav')
+guitar10 = pygame.mixer.Sound('guitar10.wav')
+guitar11 = pygame.mixer.Sound('guitar11.wav')
+guitar12 = pygame.mixer.Sound('guitar12.wav')
 
 buttonsToNotes = {0:noteGSharp, 1:noteA, 2:noteBFlat, 3:noteB, 4:noteC, 5:noteCSharp, 6:noteD, 7:noteEFlat, 8:noteE, 9:noteF, 10:noteFSharp, 11:noteG}
+buttonsToNotesGuitar = {0:guitar1, 1:guitar2, 2:guitar3, 3:guitar4, 4:guitar5, 5:guitar6, 6:guitar7, 7:guitar8, 8:guitar9, 9:guitar10, 10:guitar11, 11:guitar12}
 
 # Button Class
 class button():
