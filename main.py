@@ -139,6 +139,7 @@ def redrawWindow():
         button.draw(win, (0, 0, 0))
     playButton.draw(win, (0, 0 ,0))
     clearButton.draw(win, (0, 0 ,0))
+    guitarButton.draw((win), (0, 0, 0))
     #pygame.draw.rect(win, (255, 0, 255), (x, 0, 20, 1000))
 
     for c in highlights:
@@ -157,8 +158,9 @@ for row in range (12):
         selected.append(False)
 
 # Creation of play and clear buttons
-playButton = button((0, 255, 0), 675, 50, 90, 40, "Play!")
-clearButton = button((0, 255, 0), 795, 50, 90, 40, "Clear!")
+playButton = button((0, 255, 0), 645, 50, 90, 40, "Play!")
+clearButton = button((0, 255, 0), 765, 50, 90, 40, "Clear!")
+guitarButton = button((0, 255, 0), 885, 50, 90, 40, "Guitar!")
 pygame.mixer.set_num_channels(12)
 
 particles = []
