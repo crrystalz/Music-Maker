@@ -135,6 +135,7 @@ def playOnce():
 def guitar():
     global guitarVar
     guitarVar = True
+    playOnce()
 
 # Function to clear grid of buttons when called
 def clearGrid():
@@ -171,7 +172,7 @@ for row in range (12):
         selected.append(False)
 
 # Creation of control buttons
-playButton = button((0, 255, 0), 645, 50, 90, 40, "Play!")
+playButton = button((0, 255, 0), 645, 50, 90, 40, "Piano!")
 clearButton = button((0, 255, 0), 765, 50, 90, 40, "Clear!")
 guitarButton = button((0, 255, 0), 885, 50, 90, 40, "Guitar!")
 pygame.mixer.set_num_channels(12)
@@ -195,7 +196,8 @@ while run:
             counter = -1
             
             if playButton.isOver(pos):
-                print("Clicked Play Button")
+                print("Clicked Piano Button")
+                guitar = False
                 threading.Thread(target=playOnce).start()
 
             if clearButton.isOver(pos):
