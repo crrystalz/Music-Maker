@@ -135,7 +135,7 @@ def playOnce():
 def guitar():
     global guitarVar
     guitarVar = True
-    playOnce()
+    threading.Thread(target=playOnce).start()
 
 # Function to clear grid of buttons when called
 def clearGrid():
@@ -197,7 +197,7 @@ while run:
             
             if playButton.isOver(pos):
                 print("Clicked Piano Button")
-                guitar = False
+                guitarVar = False
                 threading.Thread(target=playOnce).start()
 
             if clearButton.isOver(pos):
