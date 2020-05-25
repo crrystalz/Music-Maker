@@ -126,6 +126,8 @@ def playOnce():
 
         if counter % 12 == 0 and counter != 0:
             pygame.time.delay(700)
+
+        counter += 1
         
         #    if guitarVar == False:
         #        pygame.time.delay(pianoTimeInterval)
