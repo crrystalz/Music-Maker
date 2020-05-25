@@ -87,7 +87,7 @@ class expandingCircle():
 
     def draw(self, win):
         pygame.draw.circle(win, self.color, (self.x, self.y), self.radius)
-        self.radius += 5
+        self.radius += 2
 
 guitarVar = False
 
@@ -95,6 +95,9 @@ guitarVar = False
 def playOnce():
     counter = 0
     vel = 130
+
+    guitarTimeInterval = 4000
+    pianoTimeInterval = 700
 
     global x
     global guitarVar
@@ -123,9 +126,21 @@ def playOnce():
 
         if counter % 12 == 0 and counter != 0:
             pygame.time.delay(700)
-            x += vel
-            highlights.clear()
-        counter += 1
+        
+        #    if guitarVar == False:
+        #        pygame.time.delay(pianoTimeInterval)
+        #    
+        #    else:
+        #        print("About to delay, and 'guitarVar' is True")
+        #        if counter == 0:
+        #            print("Delay after playing note '0'")
+        #            pygame.time.delay(400)
+        #        else:
+        #            print("Delay after playing a note other than '0'")
+        #            pygame.time.delay(guitarTimeInterval)
+        #    x += vel
+        #    highlights.clear()
+        #counter += 1
 
     x = 95
 
