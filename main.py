@@ -125,7 +125,8 @@ def playOnce():
                 buttonsToNotesGuitar[counter%12].play()
 
         if counter % 12 == 0 and counter != 0:
-            pygame.time.delay(700)
+            pygame.time.delay(800)
+            highlights.clear()
 
         counter += 1
         
