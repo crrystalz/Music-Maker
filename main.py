@@ -1,9 +1,7 @@
 import pygame
-import matplotlib as mpl
 import sys
 import threading
 import time
-import math
 import random
 
 pygame.init()
