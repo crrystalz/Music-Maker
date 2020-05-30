@@ -244,30 +244,30 @@ while run:
                 counter += 1
                 
                 if playButton.isOver(pos):
-                    playButton.color = (255, 0 , 0)
+                    playButton.color = (64, 0, 255)
                 
                 else:
-                    playButton.color = (0, 255, 0)
+                    playButton.color = (0, 153, 255)
 
                 if clearButton.isOver(pos):
-                    clearButton.color = (255, 0 , 0)
+                    clearButton.color = (64, 0, 255)
                 
                 else:
-                    clearButton.color = (0, 255, 0)
+                    clearButton.color = (0, 153, 255)
 
                 if guitarButton.isOver(pos):
-                    guitarButton.color = (255, 0 , 0)
+                    guitarButton.color = (64, 0, 255)
                 
                 else:
-                    guitarButton.color = (0, 255, 0)
+                    guitarButton.color = (0, 153, 255)
 
                 if button.isOver(pos):
                     if selected[counter] == False:
-                        button.color = (0, 255, 0)
+                        button.color = (72, 0, 255)
 
                 else:
                     if selected[counter] == False:
-                        button.color = (0, 0, 255)
+                        button.color = (136, 0, 255)
 
 
     win.blit(background, (0,0))
