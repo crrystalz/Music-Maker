@@ -1,4 +1,5 @@
 import pygame
+import pkg_resources.py2_warn
 import sys
 import threading
 import time
@@ -31,21 +32,23 @@ noteFSharp = pygame.mixer.Sound('Sounds/Piano/f#.wav')
 noteG = pygame.mixer.Sound('Sounds/Piano/g.wav')
 noteGSharp = pygame.mixer.Sound('Sounds/Piano/g#.wav')
 
-guitar1 = pygame.mixer.Sound('Sounds/Guitar1/guitar1.wav')
-guitar2 = pygame.mixer.Sound('Sounds/Guitar1/guitar2.wav')
-guitar3 = pygame.mixer.Sound('Sounds/Guitar1/guitar3.wav')
-guitar4 = pygame.mixer.Sound('Sounds/Guitar1/guitar4.wav')
-guitar5 = pygame.mixer.Sound('Sounds/Guitar1/guitar5.wav')
-guitar6 = pygame.mixer.Sound('Sounds/Guitar1/guitar6.wav')
-guitar7 = pygame.mixer.Sound('Sounds/Guitar1/guitar7.wav')
-guitar8 = pygame.mixer.Sound('Sounds/Guitar1/guitar8.wav')
-guitar9 = pygame.mixer.Sound('Sounds/Guitar1/guitar9.wav')
-guitar10 = pygame.mixer.Sound('Sounds/Guitar1/guitar10.wav')
-guitar11 = pygame.mixer.Sound('Sounds/Guitar1/guitar11.wav')
-guitar12 = pygame.mixer.Sound('Sounds/Guitar1/guitar12.wav')
+bassA = pygame.mixer.Sound('Sounds/Strings/double bass/double-bass_A3_1_forte_arco-normal.mp3')
+#guitar1 = pygame.mixer.Sound('Sounds/Guitar1/guitar1.wav')
+#guitar2 = pygame.mixer.Sound('Sounds/Guitar1/guitar2.wav')
+#guitar3 = pygame.mixer.Sound('Sounds/Guitar1/guitar3.wav')
+#guitar4 = pygame.mixer.Sound('Sounds/Guitar1/guitar4.wav')
+#guitar5 = pygame.mixer.Sound('Sounds/Guitar1/guitar5.wav')
+#guitar6 = pygame.mixer.Sound('Sounds/Guitar1/guitar6.wav')
+#guitar7 = pygame.mixer.Sound('Sounds/Guitar1/guitar7.wav')
+#guitar8 = pygame.mixer.Sound('Sounds/Guitar1/guitar8.wav')
+#guitar9 = pygame.mixer.Sound('Sounds/Guitar1/guitar9.wav')
+#guitar10 = pygame.mixer.Sound('Sounds/Guitar1/guitar10.wav')
+#guitar11 = pygame.mixer.Sound('Sounds/Guitar1/guitar11.wav')
+#guitar12 = pygame.mixer.Sound('Sounds/Guitar1/guitar12.wav')
 
 buttonsToNotes = {0:noteGSharp, 1:noteA, 2:noteBFlat, 3:noteB, 4:noteC, 5:noteCSharp, 6:noteD, 7:noteEFlat, 8:noteE, 9:noteF, 10:noteFSharp, 11:noteG}
-buttonsToNotesGuitar = {0:guitar1, 1:guitar2, 2:guitar3, 3:guitar4, 4:guitar5, 5:guitar6, 6:guitar7, 7:guitar8, 8:guitar9, 9:guitar10, 10:guitar11, 11:guitar12}
+buttonsToNotesBass = {}
+#buttonsToNotesGuitar = {0:guitar1, 1:guitar2, 2:guitar3, 3:guitar4, 4:guitar5, 5:guitar6, 6:guitar7, 7:guitar8, 8:guitar9, 9:guitar10, 10:guitar11, 11:guitar12}
 
 # Button Class
 class button():
