@@ -132,11 +132,12 @@ def playOnce():
             blue = random.randint(1,255)
 
             highlights.append(expandingCircle((red, green, blue),button.x+15, button.y+15, 40))
-            if guitarVar == False:
-                print(guitarVar)
+            if bassVar == False:
+                print(bassVar)
                 buttonsToNotes[counter%12].play()
 
             else:
+                print(bassVar)
                 buttonsToNotesBass[counter%12].play()
 
         if counter % 12 == 0 and counter != 0:
