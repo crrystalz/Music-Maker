@@ -34,7 +34,7 @@ noteGSharp = pygame.mixer.Sound('Sounds/Piano/g#.wav')
 
 bassA = pygame.mixer.Sound('Sounds/Strings/doublebass/.wav/double-bass_A3_1_forte_arco-normal.wav')
 bassAs = pygame.mixer.Sound('Sounds/Strings/doublebass/.wav/double-bass_As3_1_forte_arco-normal.wav')
-bassB3 = pygame.mixer.Sound('Sounds/Strings/doublebass/.wav/double-bass_B3_1_forte_arco-normal.wav')
+bassB = pygame.mixer.Sound('Sounds/Strings/doublebass/.wav/double-bass_B3_1_forte_arco-normal.wav')
 bassC = pygame.mixer.Sound('Sounds/Strings/doublebass/.wav/double-bass_C3_1_forte_arco-normal.wav')
 bassCs = pygame.mixer.Sound('Sounds/Strings/doublebass/.wav/double-bass_Cs3_1_forte_arco-normal.wav')
 bassD = pygame.mixer.Sound('Sounds/Strings/doublebass/.wav/double-bass_D3_1_forte_arco-normal.wav')
@@ -59,7 +59,7 @@ bassGs = pygame.mixer.Sound('Sounds/Strings/doublebass/.wav/double-bass_Gs3_1_fo
 #guitar12 = pygame.mixer.Sound('Sounds/Guitar1/guitar12.wav')
 
 buttonsToNotes = {0:noteGSharp, 1:noteA, 2:noteBFlat, 3:noteB, 4:noteC, 5:noteCSharp, 6:noteD, 7:noteEFlat, 8:noteE, 9:noteF, 10:noteFSharp, 11:noteG}
-buttonsToNotesBass = {}
+buttonsToNotesBass = {0:bassA, 1:bassAs, 2:bassB, 3:bassC, 4:bassCs, 5:bassD, 6:bassDs, 7:bassE, 8:bassF, 9:bassFs, 10:bassG, 11:bassGs}
 #buttonsToNotesGuitar = {0:guitar1, 1:guitar2, 2:guitar3, 3:guitar4, 4:guitar5, 5:guitar6, 6:guitar7, 7:guitar8, 8:guitar9, 9:guitar10, 10:guitar11, 11:guitar12}
 
 # Button Class
@@ -104,7 +104,7 @@ class expandingCircle():
         pygame.draw.circle(win, self.color, (self.x, self.y), self.radius)
         self.radius += 2
 
-guitarVar = False
+bassVar = False
 
 # Goes through buttons, checks which ones are selected and plays the corresponding sounds
 def playOnce():
@@ -115,7 +115,7 @@ def playOnce():
     pianoTimeInterval = 700
 
     global x
-    global guitarVar
+    global bassVar
 
     for button in buttons:
         #print("Counter Value " + str(counter) + " Selected Counter: " + str(selected[counter]))
@@ -137,7 +137,7 @@ def playOnce():
                 buttonsToNotes[counter%12].play()
 
             else:
-                buttonsToNotesGuitar[counter%12].play()
+                buttonsToNotesBass[counter%12].play()
 
         if counter % 12 == 0 and counter != 0:
             pygame.time.delay(800)
@@ -162,10 +162,10 @@ def playOnce():
 
     x = 95
 
-#Function to switch sounds to guitar
-def guitar():
-    global guitarVar
-    guitarVar = True
+#Function to switch sounds to bass
+def bass():
+    global bassVar
+    bassVar = True
     threading.Thread(target=playOnce).start()
 
 # Function to clear grid of buttons when called
@@ -184,7 +184,7 @@ def redrawWindow():
         button.draw(win, (0, 0, 0))
     playButton.draw(win, (0, 0 ,0))
     clearButton.draw(win, (0, 0 ,0))
-    guitarButton.draw((win), (0, 0, 0))
+    bassButton.draw((win), (0, 0, 0))
     #pygame.draw.rect(win, (255, 0, 255), (x, 0, 20, 1000))
 
     for c in highlights:
@@ -205,7 +205,7 @@ for row in range (12):
 # Creation of control buttons
 playButton = button((0, 255, 0), 645, 50, 90, 40, "Piano!")
 clearButton = button((0, 255, 0), 765, 50, 90, 40, "Clear!")
-guitarButton = button((0, 255, 0), 885, 50, 90, 40, "Guitar!")
+bassButton = button((0, 255, 0), 885, 50, 90, 40, "Bass!")
 pygame.mixer.set_num_channels(12)
 
 particles = []
@@ -235,9 +235,9 @@ while run:
                 print("Clicked Clear Button")
                 clearGrid()
 
-            if guitarButton.isOver(pos):
-                print("Clicked Guitar Button")
-                guitar()
+            if bassButton.isOver(pos):
+                print("Clicked Bass Button")
+                bass()
             
             for button in buttons:
                 counter += 1
@@ -270,11 +270,11 @@ while run:
                 else:
                     clearButton.color = (0, 153, 255)
 
-                if guitarButton.isOver(pos):
-                    guitarButton.color = (64, 0, 255)
+                if bassButton.isOver(pos):
+                    bassButton.color = (64, 0, 255)
                 
                 else:
-                    guitarButton.color = (0, 153, 255)
+                    bassButton.color = (0, 153, 255)
 
                 if button.isOver(pos):
                     if selected[counter] == False:
