@@ -132,7 +132,7 @@ def playOnce():
         # pygame.draw.rect(win, (255, 0, 255), (x, 0, 20, 1000))
 
         if counter1 % 12 == 0 and counter1 != 0:
-            pygame.time.delay(800)
+            pygame.time.delay(500)
             highlights.clear()
 
         if selected[counter1]:
