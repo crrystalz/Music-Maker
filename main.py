@@ -16,7 +16,7 @@ win = pygame.display.set_mode((1500, 1000), 0, 32)
 pygame.display.set_caption("Music Maker")
 
 # Putting in a background image
-background = pygame.image.load("backgroundImage.jpg").convert()
+background = pygame.image.load("backgroundImage (2).jpg").convert()
 
 # Importing Sounds
 noteA = pygame.mixer.Sound('Sounds/Piano/a.wav')
