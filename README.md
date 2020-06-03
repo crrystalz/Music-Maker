@@ -8,12 +8,18 @@ IDEs Used:
 2. Visual Studio Code
 3. Emacs
 
- Dependencies:
+Tested on the following platforms:
+ 1. Windows 10, Python 3.7, PyGame 1.9.6
+ 2. macOS Mojave, Python 3.7, PyGame 2.0.0.dev4
+ 
+ ## Dependencies:
   1. Python
   2. Pygame https://github.com/pygame/pygame
+  
+ To download PyGame just open up command line on your computer using the following [pip](https://pip.pypa.io/en/stable/installing/) command:
  
- Tested on the following platforms:
-  1. Windows 10, Python 3.7, PyGame 1.9.6
-  2. macOS Mojave, Python 3.7, PyGame 2.0.0.dev4
+ ```pip install pygame```
+ 
+After the procces finished you will have PyGame installed onto your computer!
 
 If you download this game make sure you have PyGame as well as Python installed on your computer. The systems configurations that this game have been tested on are listed above. Also, make sure to see the stability of the release, that you download. If it is listed as unstable it is likely to have many bugs in it code, it does however have lots of new work-in-progress features! I however would sugest you to get the most newest (but stable!) release.
