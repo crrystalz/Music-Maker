@@ -16,7 +16,7 @@ Tested on the following platforms:
   1. Python
   2. Pygame https://github.com/pygame/pygame
   
- To download PyGame just open up command line on your computer using the following command:
+ To download PyGame just open up command line on your computer using the following [pip](https://pip.pypa.io/en/stable/installing/) command:
  
  ```pip install pygame```
  
