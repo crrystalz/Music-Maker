@@ -1,5 +1,4 @@
 import pygame
-import pkg_resources.py2_warn
 import sys
 import threading
 import time
