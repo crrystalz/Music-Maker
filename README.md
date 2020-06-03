@@ -11,6 +11,8 @@ IDEs Used:
  Dependencies:
   1. Python
   2. Pygame https://github.com/pygame/pygame
+  
+ To download PyGame just open up command line on your computer and type "pip install pygame", then hit enter. After the procces finished you will have PyGame installed onto your computer!
  
  Tested on the following platforms:
   1. Windows 10, Python 3.7, PyGame 1.9.6
