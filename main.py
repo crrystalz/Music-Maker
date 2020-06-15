@@ -6,6 +6,8 @@ import random
 
 pygame.init()
 
+from pygame.locals import *
+
 start = time.perf_counter()
 
 # Initialize Screen
