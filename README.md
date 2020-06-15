@@ -20,6 +20,6 @@ Tested on the following platforms:
  
  ```pip install pygame```
  
-After the procces finished you will have PyGame installed onto your computer!
+After the proccese is finished you will have PyGame installed onto your computer!
 
 If you download this game make sure you have PyGame as well as Python installed on your computer. The systems configurations that this game have been tested on are listed above. Also, make sure to see the stability of the release, that you download. If it is listed as unstable it is likely to have many bugs in it code, it does however have lots of new work-in-progress features! I however would sugest you to get the most newest (but stable!) release.
