@@ -1,12 +1,12 @@
 import pygame
-import sys
+#import sys
 import threading
 import time
 import random
 
 pygame.init()
 
-from pygame.locals import *
+#from pygame.locals import *
 
 start = time.perf_counter()
 
